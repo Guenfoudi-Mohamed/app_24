@@ -11,9 +11,30 @@ html, body{width: 100%;height: 100%;}
     body{background-color: #000;} */
 }
 body{background-color: #0000000f;display: flex;}
-body #container{width: 550px;height: 250px;margin: auto;position: relative;}
-body #container > .blobSvg{height: 100%;}
-body #container > .blobSvg .item{opacity:0;margin: auto;width: 100%;height: 100%;position: absolute;}
+body #container{width: 100%;height: inherit;overflow: hidden;}
+/* body #container > .blobSvg{height: inherit;} */
+/* body #container > .blobSvg .item{opacity:0;margin: auto;width: 100%;height: 100%;position: absolute;} */
 /* body #container > .blobSvg .visibleBlobSvg{opacity:1;transition:opacity 1000ms;} */
-body #container > .blobSvg .resultSVG{margin: auto;width: 100%;height: 100%;}
-body #container > .blobSvg .resultSVG svg{width: 100%;height: 100%;transition:all 1s;}
+/* body #container > .resultSVG{margin: auto;width: 100%;height: 80%;} */
+/* body #container > svg{height: 100%;animation: blob 10s linear infinite;} */
+body #container > .rotateSVG{width: inherit;height: inherit;display: flex;animation: blob calc(11 * 10s) linear infinite;}
+body #container > .rotateSVG > svg{max-height: 50%;max-width: 50%;margin: auto;filter: blur(1px);animation:colorFill calc(11 * 10s) linear infinite;}
+@keyframes blob{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes colorFill{
+    0%{
+        fill: rgb(0, 181, 0);
+        /* filter: hue-rotate(0deg); */
+    }
+    100%{
+        fill: rgb(0, 152, 190);
+        /* filter: hue-rotate(90deg); */
+    }
+}
+
